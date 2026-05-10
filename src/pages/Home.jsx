@@ -25,7 +25,7 @@ export default function Home() {
       {/* Grain overlay */}
       <div className="absolute inset-0 z-10 pointer-events-none opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
-      <div className="z-20 w-full max-w-sm flex flex-col items-center flex-1 justify-center -mt-20">
+      <div className="z-20 w-full max-w-sm flex flex-col items-center flex-1 justify-center py-10">
         
         {/* BIG LOGO */}
         <motion.h1 
