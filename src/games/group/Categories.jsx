@@ -84,7 +84,7 @@ export default function Categories() {
   const isUrgent = timeRemaining < 2000;
 
   return (
-    <div className="flex flex-col min-h-screen p-6 relative bg-blur-bg overflow-hidden">
+    <div className="flex flex-col min-h-full p-6 relative bg-blur-bg overflow-hidden">
       <AnimatePresence>
         {phase === 'failed' && (
           <motion.div

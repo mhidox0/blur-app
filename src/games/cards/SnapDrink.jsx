@@ -91,7 +91,7 @@ export default function SnapDrink() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen p-6 relative bg-blur-bg overflow-hidden">
+    <div className="flex flex-col min-h-full p-6 relative bg-blur-bg overflow-hidden">
       <AnimatePresence>
         {snapActive && (
           <motion.div

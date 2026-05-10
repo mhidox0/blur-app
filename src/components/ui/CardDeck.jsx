@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { cn } from '../../lib/utils';
+import { Layers } from 'lucide-react';
 
 export default function CardDeck({ onCardFlip }) {
   const [flipped, setFlipped] = useState(false);
@@ -25,7 +26,7 @@ export default function CardDeck({ onCardFlip }) {
         
         {/* Front of card */}
         <div className="absolute inset-0 bg-white text-blur-bg rounded-xl border-4 border-white flex flex-col items-center justify-center p-4" style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
-          <span className="text-4xl mb-4">🃏</span>
+          <Layers size={48} className="mb-4 text-blur-purple" />
           <p className="font-sans font-bold text-center text-lg">Action à faire</p>
         </div>
       </motion.div>

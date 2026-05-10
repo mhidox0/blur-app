@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
 import { cn } from '../../lib/utils';
+import { Moon, Dices, Flame } from 'lucide-react';
 
 export default function ModeSelector({ selectedMode, onSelectMode }) {
   const modes = [
-    { id: 'soft', label: 'SOFT', icon: '🌙', color: 'cyan', classes: { border: 'border-blur-cyan', bg: 'bg-blur-cyan/20', shadow: 'shadow-[0_0_15px_rgba(0,245,255,0.5)]', text: 'neon-text-cyan', gradient: 'from-blur-cyan' } },
-    { id: 'mix', label: 'MIX', icon: '🎲', color: 'purple', classes: { border: 'border-blur-purple', bg: 'bg-blur-purple/20', shadow: 'shadow-[0_0_15px_rgba(155,48,255,0.5)]', text: 'neon-text-purple', gradient: 'from-blur-purple' } },
-    { id: 'hot', label: 'HOT', icon: '🔥', color: 'pink', classes: { border: 'border-blur-pink', bg: 'bg-blur-pink/20', shadow: 'shadow-[0_0_15px_rgba(255,45,120,0.5)]', text: 'neon-text-pink', gradient: 'from-blur-pink' } }
+    { id: 'soft', label: 'SOFT', icon: <Moon size={28} />, color: 'cyan', classes: { border: 'border-blur-cyan', bg: 'bg-blur-cyan/20', shadow: 'shadow-[0_0_15px_rgba(0,245,255,0.5)]', text: 'neon-text-cyan', gradient: 'from-blur-cyan' } },
+    { id: 'mix', label: 'MIX', icon: <Dices size={28} />, color: 'purple', classes: { border: 'border-blur-purple', bg: 'bg-blur-purple/20', shadow: 'shadow-[0_0_15px_rgba(155,48,255,0.5)]', text: 'neon-text-purple', gradient: 'from-blur-purple' } },
+    { id: 'hot', label: 'HOT', icon: <Flame size={28} />, color: 'pink', classes: { border: 'border-blur-pink', bg: 'bg-blur-pink/20', shadow: 'shadow-[0_0_15px_rgba(255,45,120,0.5)]', text: 'neon-text-pink', gradient: 'from-blur-pink' } }
   ];
 
   return (
@@ -31,7 +32,7 @@ export default function ModeSelector({ selectedMode, onSelectMode }) {
                 className={cn('absolute inset-0 bg-gradient-to-b opacity-20 to-transparent', mode.classes.gradient)}
               />
             )}
-            <span className="text-3xl mb-1 relative z-10">{mode.icon}</span>
+            <span className={cn('mb-1 relative z-10 flex items-center justify-center', isSelected ? mode.classes.text : 'text-white/50')}>{mode.icon}</span>
             <span className={cn(
               'font-display tracking-widest text-lg relative z-10',
               isSelected ? mode.classes.text : 'text-white/50'

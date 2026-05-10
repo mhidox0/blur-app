@@ -7,7 +7,7 @@ import NeonButton from '../components/ui/NeonButton';
 import { useSession } from '../hooks/useSession';
 
 export default function SessionWait() {
-  const { code } = useParams();
+  const { id: code } = useParams();
   const navigate = useNavigate();
   const { session } = useSession(); // In a real app, you'd fetch or subscribe to this session
 
@@ -20,7 +20,7 @@ export default function SessionWait() {
   const sessionUrl = `${window.location.origin}/lobby?action=join&code=${code}`;
 
   return (
-    <div className="flex flex-col min-h-screen p-6 relative overflow-hidden">
+    <div className="flex flex-col min-h-full p-6 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blur-purple/20 via-blur-bg to-blur-bg z-0"></div>
       
       <div className="relative z-10 flex flex-col h-full">

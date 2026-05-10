@@ -5,6 +5,7 @@ import ModeSelector from '../../components/ui/ModeSelector';
 import NeonButton from '../../components/ui/NeonButton';
 import { useSession } from '../../hooks/useSession';
 import content from '../../lib/content/fr/would-you-rather.json';
+import { Beer } from 'lucide-react';
 
 export default function WouldYouRather() {
   const [mode, setMode] = useState(null);
@@ -56,7 +57,7 @@ export default function WouldYouRather() {
 
   if (!mode) {
     return (
-      <div className="flex flex-col min-h-screen p-6 pt-20">
+      <div className="flex flex-col min-h-full p-6 pt-20">
         <h2 className="text-3xl font-display text-center mb-10 text-white tracking-widest neon-text-purple">TU PRÉFÈRES</h2>
         <ModeSelector selectedMode={mode} onSelectMode={handleStart} />
       </div>
@@ -70,7 +71,7 @@ export default function WouldYouRather() {
   const isTie = votesA === votesB;
 
   return (
-    <div className="flex flex-col min-h-screen relative bg-blur-bg overflow-hidden">
+    <div className="flex flex-col min-h-full relative bg-blur-bg overflow-hidden">
       
       <div className="absolute top-0 inset-x-0 p-6 flex justify-between items-center z-50">
         <button onClick={() => navigate('/games')} className="text-white/50 text-sm bg-black/50 px-3 py-1 rounded-full backdrop-blur-md">← Menu</button>
@@ -92,8 +93,8 @@ export default function WouldYouRather() {
         <div className="absolute top-24 inset-x-0 flex flex-col items-center z-50 pointer-events-none gap-2">
           {isTie ? (
              <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="bg-blur-pink/90 px-8 py-4 rounded-xl border-2 border-white shadow-[0_0_30px_rgba(255,45,120,1)]">
-               <p className="font-display text-3xl text-white tracking-widest">ÉGALITÉ 🍺</p>
-               <p className="font-sans text-white text-center">Tout le monde boit !</p>
+               <p className="font-display text-3xl text-white tracking-widest flex items-center justify-center gap-2">ÉGALITÉ <Beer size={28} /></p>
+               <p className="font-sans text-white text-center mt-2">Tout le monde boit !</p>
              </motion.div>
           ) : (
             <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="bg-black/80 px-8 py-4 rounded-xl border border-white/20 backdrop-blur-md text-center">

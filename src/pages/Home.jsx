@@ -6,7 +6,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-6 relative overflow-hidden bg-blur-bg">
+    <div className="flex flex-col items-center justify-center min-h-full p-6 relative overflow-hidden bg-blur-bg">
       
       {/* Background Animated Particles/Glow */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">

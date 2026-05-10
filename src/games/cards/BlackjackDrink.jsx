@@ -161,7 +161,7 @@ export default function BlackjackDrink() {
   const dealerScore = calculateScore(dealerCards);
 
   return (
-    <div className="flex flex-col min-h-screen p-6 relative bg-blur-bg overflow-hidden">
+    <div className="flex flex-col min-h-full p-6 relative bg-blur-bg overflow-hidden">
       <AnimatePresence>
         {activeP?.status === 'bust' && phase === 'playing' && (
           <motion.div

@@ -43,7 +43,7 @@ export default function Picolo() {
 
   if (!mode) {
     return (
-      <div className="flex flex-col min-h-screen p-6 pt-20">
+      <div className="flex flex-col min-h-full p-6 pt-20">
         <h2 className="text-3xl font-display text-center mb-10 text-white tracking-widest neon-text-cyan">PICOLO</h2>
         <ModeSelector selectedMode={mode} onSelectMode={handleStart} />
         <div className="mt-auto">
@@ -57,7 +57,7 @@ export default function Picolo() {
 
   if (currentIndex >= cards.length) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen p-6">
+      <div className="flex flex-col items-center justify-center min-h-full p-6">
         <h2 className="text-4xl font-display neon-text-purple mb-6 text-center">FIN DU JEU</h2>
         <NeonButton onClick={() => navigate('/games')} variant="purple">RETOUR</NeonButton>
       </div>
@@ -78,7 +78,7 @@ export default function Picolo() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen p-6 overflow-hidden bg-blur-bg">
+    <div className="flex flex-col min-h-full p-6 overflow-hidden bg-blur-bg">
       <div className="flex justify-between items-center mb-8 z-10 relative">
         <button onClick={() => navigate('/games')} className="text-white/50 hover:text-white transition-colors text-sm font-sans">
           ← Menu

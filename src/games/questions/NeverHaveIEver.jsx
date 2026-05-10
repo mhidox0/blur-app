@@ -5,6 +5,7 @@ import ModeSelector from '../../components/ui/ModeSelector';
 import NeonButton from '../../components/ui/NeonButton';
 import GlassCard from '../../components/ui/GlassCard';
 import content from '../../lib/content/fr/never-have-i-ever.json';
+import { Beer } from 'lucide-react';
 
 export default function NeverHaveIEver() {
   const [mode, setMode] = useState(null);
@@ -36,7 +37,7 @@ export default function NeverHaveIEver() {
 
   if (!mode) {
     return (
-      <div className="flex flex-col min-h-screen p-6 pt-20">
+      <div className="flex flex-col min-h-full p-6 pt-20">
         <h2 className="text-3xl font-display text-center mb-10 text-white tracking-widest neon-text-purple">JE N'AI JAMAIS</h2>
         <ModeSelector selectedMode={mode} onSelectMode={handleStart} />
         <div className="mt-auto">
@@ -50,7 +51,7 @@ export default function NeverHaveIEver() {
 
   if (currentIndex >= cards.length) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen p-6">
+      <div className="flex flex-col items-center justify-center min-h-full p-6">
         <h2 className="text-4xl font-display neon-text-purple mb-6 text-center">FIN DU JEU</h2>
         <NeonButton onClick={() => navigate('/games')} variant="purple">RETOUR</NeonButton>
       </div>
@@ -58,7 +59,7 @@ export default function NeverHaveIEver() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen p-6 relative bg-blur-bg overflow-hidden">
+    <div className="flex flex-col min-h-full p-6 relative bg-blur-bg overflow-hidden">
       <div className="flex justify-between items-center mb-8 z-10">
         <button onClick={() => navigate('/games')} className="text-white/50 text-sm hover:text-white transition-colors">← Menu</button>
         <span className="font-display tracking-widest text-white/70">JE N'AI JAMAIS</span>
@@ -102,9 +103,9 @@ export default function NeverHaveIEver() {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={handleDrink}
-            className="bg-white/10 hover:bg-white/20 border border-white/30 rounded-full py-4 px-8 font-sans font-medium text-lg text-white transition-colors w-full shadow-lg"
+            className="bg-white/10 hover:bg-white/20 border border-white/30 rounded-full py-4 px-8 font-sans font-medium text-lg text-white transition-colors w-full shadow-lg flex items-center justify-center gap-2"
           >
-            Je l'ai fait 🍺
+            Je l'ai fait <Beer size={20} />
           </motion.button>
         </div>
 

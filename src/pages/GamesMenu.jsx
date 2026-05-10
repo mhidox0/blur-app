@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import GlassCard from '../components/ui/GlassCard';
+import { Settings as SettingsIcon, Layers, MessageCircleQuestion, Zap, Users, Flame } from 'lucide-react';
 
 const CATEGORIES = [
   {
-    title: '🃏 CARTES',
+    title: <div className="flex items-center gap-2"><Layers className="text-blur-cyan" size={24} /> CARTES</div>,
     games: [
       { id: 'palmier', name: 'Le Palmier', desc: 'L\'éventail des punitions', players: '3-8', path: '/games/palmier' },
       { id: 'blackjack', name: 'Blackjack Drink', desc: 'Battez le dealer', players: '2-6', path: '/games/blackjack' },
@@ -16,7 +17,7 @@ const CATEGORIES = [
     ]
   },
   {
-    title: '❓ QUESTIONS',
+    title: <div className="flex items-center gap-2"><MessageCircleQuestion className="text-blur-purple" size={24} /> QUESTIONS</div>,
     games: [
       { id: 'picolo', name: 'Picolo', desc: 'Des défis sans pitié', players: '2-10', path: '/games/picolo', hot: true },
       { id: 'truth-or-shot', name: 'Vérité ou Shot', desc: 'Honnêteté ou alcool', players: '3-8', path: '/games/truth-or-shot', hot: true },
@@ -26,7 +27,7 @@ const CATEGORIES = [
     ]
   },
   {
-    title: '⚡ SKILL & ACTION',
+    title: <div className="flex items-center gap-2"><Zap className="text-yellow-400" size={24} /> SKILL & ACTION</div>,
     games: [
       { id: 'speed-tap', name: 'Speed Tap', desc: 'Le plus lent boit', players: '2-8', path: '/games/speed-tap' },
       { id: 'dice', name: 'Dé à boire', desc: 'Laisses faire le hasard', players: '2-8', path: '/games/dice', hot: true },
@@ -34,7 +35,7 @@ const CATEGORIES = [
     ]
   },
   {
-    title: '🗣️ GROUPE',
+    title: <div className="flex items-center gap-2"><Users className="text-green-400" size={24} /> GROUPE</div>,
     games: [
       { id: 'categories', name: 'Catégories', desc: 'Trouve vite un mot !', players: '3-10', path: '/games/categories' },
       { id: 'rime-battle', name: 'Rime Battle', desc: 'Trouve une rime', players: '3-8', path: '/games/rime-battle' },
@@ -60,11 +61,13 @@ export default function GamesMenu() {
   const [globalMode, setGlobalMode] = useState('mix'); // soft, mix, hot
 
   return (
-    <div className="flex flex-col min-h-screen p-6 pt-12 relative bg-blur-bg pb-32">
+    <div className="flex flex-col min-h-full p-6 pt-12 relative bg-blur-bg pb-32">
       
       <div className="flex justify-between items-center mb-10 z-10">
         <h1 className="font-display text-4xl tracking-widest text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">JEUX</h1>
-        <button onClick={() => navigate('/settings')} className="text-white/70 text-2xl">⚙️</button>
+        <button onClick={() => navigate('/settings')} className="text-white/70 hover:text-white transition-colors">
+          <SettingsIcon size={28} />
+        </button>
       </div>
 
       <motion.div variants={container} initial="hidden" animate="show" className="flex flex-col gap-10 z-10 w-full max-w-sm mx-auto">
@@ -86,7 +89,11 @@ export default function GamesMenu() {
                     </div>
                     <div className="flex justify-between items-center mt-auto">
                       <span className="text-[10px] text-white/40 bg-white/5 px-2 py-1 rounded-full">{game.players} j</span>
-                      {game.hot && globalMode === 'hot' && <span className="text-[10px] text-blur-pink border border-blur-pink px-2 py-1 rounded-full animate-pulse">HOT</span>}
+                      {game.hot && globalMode === 'hot' && (
+                        <span className="flex items-center gap-1 text-[10px] text-blur-pink border border-blur-pink px-2 py-1 rounded-full animate-pulse">
+                          <Flame size={12} /> HOT
+                        </span>
+                      )}
                     </div>
                   </GlassCard>
                 </motion.div>
@@ -97,7 +104,7 @@ export default function GamesMenu() {
       </motion.div>
 
       {/* Global Mode FAB */}
-      <div className="fixed bottom-6 inset-x-0 flex justify-center z-50 pointer-events-none">
+      <div className="fixed bottom-6 inset-x-0 mx-auto w-full max-w-[390px] flex justify-center z-50 pointer-events-none">
         <div className="bg-black/80 p-2 rounded-full border border-white/20 backdrop-blur-md flex gap-2 pointer-events-auto shadow-2xl">
           <button 
             onClick={() => setGlobalMode('soft')}

@@ -1,3 +1,4 @@
+import { Smartphone } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import GlassCard from '../components/ui/GlassCard';
 import NeonButton from '../components/ui/NeonButton';
@@ -11,14 +12,14 @@ export default function Settings() {
       alert("Données réinitialisées.");
       navigate('/');
     }
-  };
+  }
 
   const handleInstall = () => {
     alert("Pour installer l'app, utilisez le bouton de partage de votre navigateur puis 'Sur l'écran d'accueil'.");
-  };
+  }
 
   return (
-    <div className="flex flex-col min-h-screen p-6 pt-12 relative bg-blur-bg">
+    <div className="flex flex-col min-h-full p-6 pt-12 relative bg-blur-bg">
       <div className="flex justify-between items-center mb-10 z-10">
         <button onClick={() => navigate(-1)} className="text-white/50 text-sm hover:text-white transition-colors">← Retour</button>
         <span className="font-display tracking-widest text-white/70">PARAMÈTRES</span>
@@ -60,9 +61,9 @@ export default function Settings() {
           <h3 className="font-display text-xl text-white mb-4 tracking-widest border-b border-white/10 pb-2">Application</h3>
           <button 
             onClick={handleInstall}
-            className="w-full bg-white/10 hover:bg-white/20 text-white rounded-xl py-3 font-sans transition-colors mb-4"
+            className="w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white rounded-xl py-3 font-sans transition-colors mb-4"
           >
-            Installer BLUR (PWA) 📱
+            Installer BLUR (PWA) <Smartphone size={18} />
           </button>
           
           <div className="text-center mt-6">

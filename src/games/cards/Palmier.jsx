@@ -48,7 +48,7 @@ export default function Palmier() {
 
   if (!mode) {
     return (
-      <div className="flex flex-col min-h-screen p-6 pt-20">
+      <div className="flex flex-col min-h-full p-6 pt-20">
         <h2 className="text-3xl font-display text-center mb-10 text-white tracking-widest neon-text-purple">LE PALMIER</h2>
         <ModeSelector selectedMode={mode} onSelectMode={handleStart} />
         <div className="mt-auto">
@@ -61,7 +61,7 @@ export default function Palmier() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen p-6 relative bg-blur-bg overflow-hidden">
+    <div className="flex flex-col min-h-full p-6 relative bg-blur-bg overflow-hidden">
       <div className="flex justify-between items-center mb-12 z-10">
         <button onClick={() => navigate('/games')} className="text-white/50 text-sm hover:text-white transition-colors">← Menu</button>
         <span className="font-display tracking-widest text-white/70">LE PALMIER</span>

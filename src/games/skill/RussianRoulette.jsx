@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import NeonButton from '../../components/ui/NeonButton';
 import { useSession } from '../../hooks/useSession';
+import { GlassWater, Droplet, Bomb } from 'lucide-react';
 
 export default function RussianRoulette() {
   const [loadedGlass, setLoadedGlass] = useState(null);
@@ -66,7 +67,7 @@ export default function RussianRoulette() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen p-6 relative bg-blur-bg overflow-hidden">
+    <div className="flex flex-col min-h-full p-6 relative bg-blur-bg overflow-hidden">
       <AnimatePresence>
         {exploded && (
           <motion.div
@@ -122,10 +123,10 @@ export default function RussianRoulette() {
                 }
               `}
             >
-              {status === 'hidden' && <span className="text-4xl opacity-50">🥃</span>}
+              {status === 'hidden' && <GlassWater size={40} className="opacity-50" />}
               {status === 'counting' && <span className="font-display text-5xl neon-text-cyan">{countdown}</span>}
-              {status === 'revealed-safe' && <span className="text-4xl opacity-30 blur-[2px]">💧</span>}
-              {status === 'revealed-loaded' && <span className="text-5xl drop-shadow-[0_0_15px_rgba(255,0,0,1)]">💥</span>}
+              {status === 'revealed-safe' && <Droplet size={40} className="opacity-30 blur-[2px]" />}
+              {status === 'revealed-loaded' && <Bomb size={48} className="text-red-500 drop-shadow-[0_0_15px_rgba(255,0,0,1)]" />}
             </motion.button>
           ))}
         </div>

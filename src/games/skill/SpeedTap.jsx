@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import NeonButton from '../../components/ui/NeonButton';
 import GlassCard from '../../components/ui/GlassCard';
 import { useSession } from '../../hooks/useSession';
+import { Zap } from 'lucide-react';
 
 export default function SpeedTap() {
   const [activePlayerIndex, setActivePlayerIndex] = useState(0);
@@ -81,7 +82,7 @@ export default function SpeedTap() {
 
   return (
     <div 
-      className="flex flex-col min-h-screen p-6 relative bg-blur-bg overflow-hidden"
+      className="flex flex-col min-h-full p-6 relative bg-blur-bg overflow-hidden"
       onClick={handleScreenTap}
     >
       <div className="flex justify-between items-center mb-8 z-10">
@@ -124,7 +125,7 @@ export default function SpeedTap() {
             className="absolute w-24 h-24 rounded-full bg-blur-pink border-4 border-white shadow-[0_0_30px_rgba(255,45,120,0.8)] z-50 flex items-center justify-center focus:outline-none"
             style={{ top: targetPos.top, left: targetPos.left, transform: 'translate(-50%, -50%)' }}
           >
-            <span className="text-4xl">⚡</span>
+            <Zap size={48} className="text-white" fill="currentColor" />
           </motion.button>
         )}
 
