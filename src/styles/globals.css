@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-blur-bg text-white font-sans;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-wide;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-blur-surface backdrop-blur-md border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)];
+  }
+  .neon-text-purple {
+    text-shadow: 0 0 10px rgba(155, 48, 255, 0.7), 0 0 20px rgba(155, 48, 255, 0.5);
+  }
+  .neon-text-pink {
+    text-shadow: 0 0 10px rgba(255, 45, 120, 0.7), 0 0 20px rgba(255, 45, 120, 0.5);
+  }
+  .neon-text-cyan {
+    text-shadow: 0 0 10px rgba(0, 245, 255, 0.7), 0 0 20px rgba(0, 245, 255, 0.5);
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
